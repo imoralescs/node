@@ -49,7 +49,7 @@ const babel = {
 
 // Generate list page of HtmlWebpackPlugin
 const pages = fs
-    .readdirSync(path.resolve(__dirname, 'src/pug'))
+    .readdirSync(path.resolve(__dirname, 'src/views'))
     .filter(fileName => fileName.endsWith('.pug'))
 
 module.exports = {
@@ -77,7 +77,7 @@ module.exports = {
             const temp = page.split('.').slice(0, -1).join('.');
             return new HtmlWebpackPlugin({
                 filename: `../dist/public/${temp}.html`,
-                template: `src/pug/${page}`,
+                template: `src/views/${page}`,
                 inject: false,
                 minify: false
             });
